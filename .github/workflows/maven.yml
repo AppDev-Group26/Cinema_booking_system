@@ -45,6 +45,14 @@ jobs:
           path: target/surefire-reports/*.xml
           reporter: java-junit
           fail-on-error: true
+          
+     - name: Listing files in directory
+       run: ls -a
+    
+     - name: What is the target folder? 
+       run: |
+        cd target
+        ls -a
     
     # Caching to reduce load and latency on GitHub workflow. 
      - name: Cache
