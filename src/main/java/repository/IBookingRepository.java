@@ -8,11 +8,11 @@
 package repository;
 
 
+
 import domain.Booking;
 
-public interface IRepository<T,ID> {
-    T create(T t);
-    Booking read(String id);
-    T update(T t);
-    boolean delete(ID id);
+import java.util.Set;
+
+public interface IBookingRepository extends IRepository<Booking, String> {
+    public Set<Booking> getAll();
 }
