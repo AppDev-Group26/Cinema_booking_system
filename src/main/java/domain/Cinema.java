@@ -9,21 +9,21 @@ package domain;
 
 public class Cinema {
 
+    private String cinemaNumber;
     private String location;
     private String nameOfCinema;
     private String operatingHours;
 
-    // Default Constructor
-    private Cinema (){
-
-    }
     // Builder Class
     private Cinema (Builder builder) {
+
+        this.cinemaNumber = builder.cinemaNumber;
         this.location = builder.location;
         this.nameOfCinema = builder.nameOfCinema;
         this.operatingHours = builder.operatingHours;
     }
 
+    public String getCinemaNumber() { return cinemaNumber;}
     public String getLocation() {
         return location;
     }
@@ -35,6 +35,8 @@ public class Cinema {
     public String getOperatingHours() {
         return operatingHours;
     }
+
+    public void setCinemaNumber(String cinemaNumber) { this.cinemaNumber = cinemaNumber;}
 
     public void setLocation(String location) {
         this.location = location;
@@ -50,7 +52,8 @@ public class Cinema {
 
     @Override
     public String toString() {
-        return "Builder{" +
+        return "Cinema{" +
+                "cinemaNumber='" + cinemaNumber + '\''+
                 "location='" + location + '\'' +
                 ", nameOfCinema='" + nameOfCinema + '\'' +
                 ", operatingHours='" + operatingHours + '\'' +
@@ -58,11 +61,16 @@ public class Cinema {
     }
 
     public static class Builder {
+
+        private String cinemaNumber;
         private String location;
         private String nameOfCinema;
         private String operatingHours;
 
-
+        public Builder setCinemaNumber(String cinemaNumber){
+            this.cinemaNumber = cinemaNumber;
+            return this;
+        }
         public Builder setLocation(String location) {
             this.location = location;
             return this;
@@ -80,7 +88,8 @@ public class Cinema {
 
 
         public Cinema build(){
-            return new Cinema(this); //anonymous object (location, name or operating hours.)
+            return new Cinema(this);
+            //anonymous object (location, name or operating hours.)
         }
 
     }
