@@ -32,7 +32,7 @@ public class Timeslot {
 
 
     public String getScreeningRoom() {
-        return screeningRoom;
+        return getScreeningRoom();
     }
 
     public String getTime() {

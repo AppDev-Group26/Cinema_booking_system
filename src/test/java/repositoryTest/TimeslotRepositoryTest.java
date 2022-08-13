@@ -44,7 +44,7 @@ public class TimeslotRepositoryTest<timeSlot> {
 
     @Test
     void b_read() {
-        Booking read = repository.read(Timeslot.getIsAvailable());
+        Timeslot read = repository.read(Timeslot.getIsAvailable());
         System.out.println("Read :" + read);
     }
 

@@ -7,22 +7,18 @@
 
 package repository;
 
-
-
-import domain.Booking;
 import domain.Timeslot;
+import factory.TimeslotFactory;
 
 import java.util.HashSet;
 import java.util.Set;
 
 public class TimeslotRepositoryImpl implements ITimeslotRepository {
     private static TimeslotRepositoryImpl repository = null;
-    private Set<Timeslot> TimeslotDB;
-    private Timeslot timeslot;
-
+    private Set<Timeslot> timeslotDB;
 
     private TimeslotRepositoryImpl(){
-        this.TimeslotDB = new HashSet<>();
+        this.timeslotDB = new HashSet<>();
     }
 
     public static TimeslotRepositoryImpl getRepository() {
@@ -31,63 +27,59 @@ public class TimeslotRepositoryImpl implements ITimeslotRepository {
         }
         return repository;
     }
-    
+
     public static Timeslot createTimeslot(String screeningRoom,double Time, boolean isAvailable) {
         Timeslot timeslot = null;
         return null;
     }
-    
+
     @Override
     public Timeslot create(Timeslot timeslot) {
-        this.TimeslotDB.add(timeslot);
+        this.timeslotDB.add(timeslot);
         return timeslot;
     }
 
     @Override
-    public Booking read(String ScreeningRoom) {
-        for (Timeslot time : TimeslotDB) {
+    public Timeslot read(String ScreeningRoom) {
+        for (Timeslot time : timeslotDB) {
             if (time.getScreeningRoom().equals(time.isAvailable())) {
-                Booking Booking = null;
+                return time;
             }
-            return null;
         }
         return null;
     }
 
-
-
-        @Override
-    public Timeslot update(Timeslot timeslot) {
-        Booking Tim1 = read(Timeslot.getIsAvailable());
-        if (Tim1 != null){
-            TimeslotDB.remove(Tim1);
-            Timeslot Timeslot = null;
-            TimeslotDB.add(null);
-            domain.Timeslot Booking = null;
-            return null;
-        }
-        return null;
-    }
+            @Override
+            public Timeslot update (Timeslot timeslot){
+                Timeslot timeslot1 = TimeslotFactory.createTimeslot(timeslot.getScreeningRoom(), timeslot.getTime(), timeslot.isAvailable());
+                if (timeslot1 != null) {
+                    timeslotDB.remove(timeslot1);
+                    timeslotDB.add(timeslot);
+                    return timeslot;
+                }
+                return null;
+            }
 
     @Override
     public boolean delete(String s) {
         return false;
     }
 
-    public boolean delete(double Time) {
-        Booking deleteTimeslot = read(String.valueOf((Time)));
-        if (deleteTimeslot== null) {
-            System.out.println("Timeslot is null");
-            return false;
+
+    public boolean deleteTimeslot (String screeningRoom){
+                Timeslot deleteTimeslot1 = read((screeningRoom));
+                if (deleteTimeslot1 == null) {
+                    System.out.println("Timeslot is null");
+                    return false;
+                }
+
+                timeslotDB.remove(deleteTimeslot1);
+                System.out.println("Timeslot is removed");
+                return true;
+            }
+
+            @Override
+            public Set<Timeslot> getAll () {
+                return timeslotDB;
+            }
         }
-
-        TimeslotDB.remove(deleteTimeslot);
-        System.out.println("Timeslot is removed");
-        return true;
-    }
-
-    @Override
-    public Set<Timeslot> getAll() {
-        return TimeslotDB;
-    }
-}

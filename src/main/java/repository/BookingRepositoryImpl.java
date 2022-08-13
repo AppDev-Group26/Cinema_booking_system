@@ -11,9 +11,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class BookingRepositoryImpl implements IBookingRepository {
-
     private static BookingRepositoryImpl repository = null;
     private Set<Booking> bookingDB;
+    private Booking booking;
 
     private BookingRepositoryImpl(){
         this.bookingDB = new HashSet<>();
@@ -32,7 +32,6 @@ public class BookingRepositoryImpl implements IBookingRepository {
                                         String location,
                                         int foodNumber,
                                         int beveragesNumber) {
-        Booking Booking = null;
         return null;
     }
 

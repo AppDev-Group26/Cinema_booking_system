@@ -6,12 +6,12 @@
  */
 
 package factory;
-
-
 import domain.Timeslot;
 
 public class TimeslotFactory {
-    public static Timeslot createTimeslot(String screeningRoom, String Time, String isAvailable){
+    public static Timeslot createTimeslot(String screeningRoom,
+                                          String Time,
+                                          String isAvailable){
 
         Timeslot timeSlot =new Timeslot.Builder().setTime(Time)
                 .setIsAvailable(isAvailable)
