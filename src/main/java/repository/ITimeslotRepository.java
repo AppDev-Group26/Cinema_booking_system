@@ -16,5 +16,7 @@ import java.util.Set;
 public interface ITimeslotRepository extends IRepository<Timeslot, String> {
     Timeslot create(Timeslot timeslot);
 
+    Timeslot read(String ScreeningRoom);
+
     public Set<Timeslot> getAll();
 }

@@ -16,7 +16,7 @@ public class BookingFactoryTest {
      @Test
     public void test (){
          Booking booking = BookingFactory.createBooking(
-                 2637,
+                 "2637",
                  45,
                  "17 June 2022",
                  "12:40",

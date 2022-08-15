@@ -7,6 +7,8 @@
 
 package repository;
 import domain.Booking;
+import domain.Cinema;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -26,15 +28,6 @@ public class BookingRepositoryImpl implements IBookingRepository {
         return repository;
     }
 
-    public static Booking createBooking(int referenceNumber,
-                                        String date,
-                                        String time,
-                                        String location,
-                                        int foodNumber,
-                                        int beveragesNumber) {
-        return null;
-    }
-
     @Override
     public Booking create(Booking booking) {
         this.bookingDB.add(booking);
@@ -42,45 +35,43 @@ public class BookingRepositoryImpl implements IBookingRepository {
     }
 
     @Override
-    public Booking read(String location) {
-        for (Booking book : bookingDB){
-            if (book.getLocation().equals(location)){
-                return book;
-            }
-        }
+    public Booking read(Booking id) {
         return null;
     }
 
     @Override
+    public Booking read(String referenceNumber) {
+       Booking booking = bookingDB.stream()
+                .filter(t -> t.getReferenceNumber().equals(referenceNumber))
+                .findAny()
+                .orElse(null);
+        return booking;
+
+    }
+
+    @Override
     public Booking update(Booking booking) {
-        Booking<Object, Object> book = null;
-        Booking booking1 = read(book.getTime());
-        if (book != null){
-            bookingDB.remove(book);
-            bookingDB.add(booking);
+        Booking oldBooking = read(booking.getReferenceNumber());
+        if(oldBooking != null){
+            bookingDB.remove(oldBooking);
+            bookingDB.add(oldBooking);
             return booking;
         }
         return null;
     }
 
     @Override
-    public boolean delete(String location) {
-        Booking deleteBooking = read((location));
-        if (deleteBooking== null) {
-            System.out.println("Booking is null");
+    public boolean delete(String referenceNumber) {
+        Booking bookingToDelete = read(referenceNumber);
+        if(bookingToDelete == null)
             return false;
-        }
-
-        bookingDB.remove(location);
-        System.out.println("Booking is removed");
+        bookingDB.remove(bookingToDelete);
         return true;
     }
+
 
     @Override
     public Set<Booking> getAll() {
         return bookingDB;
-    }
-
-    public void deleteBooking(String location) {
     }
 }

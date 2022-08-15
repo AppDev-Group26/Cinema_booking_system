@@ -10,7 +10,7 @@ package factory;
 
 import domain.Booking;
 public class BookingFactory {
-    public static Booking createBooking(int referenceNumber,
+    public static Booking createBooking(String referenceNumber,
                                         int beverageNumber,
                                         String date,
                                         String Time,

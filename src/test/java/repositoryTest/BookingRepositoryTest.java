@@ -22,7 +22,7 @@ public class BookingRepositoryTest {
 
     private static BookingRepositoryImpl repository = BookingRepositoryImpl.getRepository();
     private static Booking booking = BookingFactory.createBooking(
-            2637,
+            "2637",
             127,
             "17 June 2022",
             "12:30",
@@ -33,7 +33,7 @@ public class BookingRepositoryTest {
     @Test
     void create() {
         Booking booking = BookingFactory.createBooking(
-                2637,
+                "2637",
                 127,
                 "17 June 2022",
                 "12:30",
@@ -54,7 +54,7 @@ public class BookingRepositoryTest {
     @Test
     void update() {
         Booking updateBooking = new Booking.Builder().copy(booking)
-                .setReferenceNumber(1224)
+                .setReferenceNumber("1224")
                 .setTime("10:30")
                 .setLocation("A14")
                 .setFoodNumber(128)

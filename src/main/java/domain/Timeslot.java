@@ -27,7 +27,7 @@ public class Timeslot {
     }
 
     public static String getIsAvailable() {
-        return null;
+        return isAvailable;
     }
 
 

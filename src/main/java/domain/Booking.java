@@ -8,8 +8,8 @@
 package domain;
 
 public class Booking<Ticket, User> {
-    private static String location;
-    private int referenceNumber,foodNumber, beverageNumber;
+    private int foodNumber, beverageNumber;
+    private static String location, referenceNumber;
     private String date;
     private static String time;
     //    private String location;
@@ -20,7 +20,7 @@ public class Booking<Ticket, User> {
     public Booking(String date,
                    String time,
                    String location,
-                   int referenceNumber,
+                   String referenceNumber,
                    int foodNumber,
                    int beverageNumber,
                    Ticket ticket,
@@ -45,7 +45,7 @@ public class Booking<Ticket, User> {
         this.beverageNumber = beverageNumber;
     }
 
-    public int getReferenceNumber() {
+    public String getReferenceNumber() {
         return referenceNumber;
     }
 
@@ -72,10 +72,10 @@ public class Booking<Ticket, User> {
 
     public static class Builder {
 
-        private int referenceNumber,foodNumber, beverageNumber;
-        private String date, time, location;
+        private int foodNumber, beverageNumber;
+        private String date, time, location, referenceNumber;
 
-        public Builder setReferenceNumber(int referenceNumber) {
+        public Builder setReferenceNumber(String referenceNumber) {
             this.referenceNumber = referenceNumber;
             return this;
         }

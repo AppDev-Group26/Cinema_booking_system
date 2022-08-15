@@ -10,9 +10,6 @@ import factory.TicketFactory;
 import org.junit.jupiter.api.Test;
 import repository.TicketRepository;
 
-
-
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class TicketRepositoryTest {
