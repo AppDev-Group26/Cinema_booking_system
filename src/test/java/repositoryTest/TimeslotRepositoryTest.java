@@ -6,7 +6,6 @@
  */
 
 package repositoryTest;
-import domain.Booking;
 import domain.Timeslot;
 import factoryTest.TimeslotFactoryTest;
 import org.junit.jupiter.api.MethodOrderer;
@@ -37,10 +36,6 @@ public class TimeslotRepositoryTest<timeSlot> {
        assertNotNull(timeslot);
         System.out.println("Timeslot: " + timeslot);
     }
-
-
-
-
 
     @Test
     void b_read() {

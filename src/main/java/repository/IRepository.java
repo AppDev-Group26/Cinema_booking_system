@@ -7,12 +7,9 @@
 
 package repository;
 
-
-import domain.Booking;
-
 public interface IRepository<T,ID> {
     T create(T t);
-    Booking read(String id);
+    T read(ID id);
     T update(T t);
     boolean delete(ID id);
 }
