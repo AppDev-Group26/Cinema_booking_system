@@ -11,6 +11,8 @@ import java.util.Set;
 
 public interface ICinemaRepository extends IRepository<Cinema, String> {
 
+    Cinema read(Cinema ID);
+
     Cinema read(String cinemaNumber);
 
     public Set<Cinema> getAll();

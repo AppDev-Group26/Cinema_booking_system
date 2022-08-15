@@ -11,6 +11,8 @@ import java.util.Set;
 
 public interface IMovieRepository extends IRepository<Movie, String>{
 
+    Movie read(Movie ID);
+
     Movie read(String description);
 
     public Set<Movie> getAll();

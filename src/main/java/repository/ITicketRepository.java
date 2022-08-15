@@ -13,6 +13,8 @@ import java.util.Set;
 
 public interface ITicketRepository extends IRepository<Ticket, String>{
 
+    Ticket read(Ticket ID);
+
     Ticket read(String referenceNumber);
 
     public Set<Ticket> getAll();

@@ -10,7 +10,6 @@ import factory.ReceiptFactory;
 import org.junit.jupiter.api.Test;
 import repository.ReceiptRepository;
 
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class ReceiptRepositoryTest {

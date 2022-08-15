@@ -10,6 +10,8 @@ import java.util.Set;
 
 public interface ILoginRepository extends IRepository<Login, String>{
 
+    Login read(Login ID);
+
     Login read(String email);
 
     public Set<Login> getAll();
